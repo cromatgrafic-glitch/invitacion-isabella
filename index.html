@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,18 +7,16 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width,
-               initial-scale=1.0,
-               viewport-fit=cover">
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <title>Invitación Isabella</title>
 
 
 <style>
 
-/* ==================================================
+/* =====================================================
    CONFIGURACIÓN GENERAL
-================================================== */
+===================================================== */
 
 * {
     box-sizing: border-box;
@@ -38,38 +37,51 @@ body {
 }
 
 
-/* ==================================================
-   PORTADA
-================================================== */
-
-/*
-   PC:
-   Utilizamos la PORTADA HORIZONTAL
-*/
+/* =====================================================
+   CONTENEDOR PRINCIPAL
+===================================================== */
 
 .portada {
-
     position: relative;
 
     width: 100vw;
     height: 100vh;
     height: 100dvh;
 
-    background-image: url("PORTADA%20SITE.png");
-
-    background-size: cover;
-
-    background-position: center center;
-
-    background-repeat: no-repeat;
-
     overflow: hidden;
+
+    background: #f7f2e8;
 }
 
 
-/* ==================================================
+/* =====================================================
+   IMAGEN DE LA PORTADA
+
+   PC = PORTADA SITE.png
+   CELULAR = PORTADA SITE VERTICAL.png
+===================================================== */
+
+.portada-imagen {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center center;
+
+    display: block;
+
+    z-index: 1;
+}
+
+
+/* =====================================================
    AUDIO
-================================================== */
+===================================================== */
 
 .audio-container {
 
@@ -81,9 +93,9 @@ body {
 
     transform: translateX(-50%);
 
-    z-index: 20;
-
     width: min(430px, 90vw);
+
+    z-index: 20;
 }
 
 
@@ -114,9 +126,9 @@ body {
 }
 
 
-/* ==================================================
-   BOTÓN DE AUDIO
-================================================== */
+/* =====================================================
+   BOTÓN PLAY / PAUSA
+===================================================== */
 
 .audio-button {
 
@@ -129,7 +141,7 @@ body {
 
     border-radius: 50%;
 
-    background: rgba(115, 123, 90, 0.85);
+    background: rgba(115, 123, 90, 0.88);
 
     color: white;
 
@@ -146,31 +158,22 @@ body {
     box-shadow:
         0 2px 8px rgba(60, 60, 40, 0.15);
 
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease;
+    transition: transform 0.2s ease;
 }
-
 
 .audio-button:hover {
-
     transform: scale(1.05);
-
-    background: rgba(115, 123, 90, 1);
 }
 
 
-/* ==================================================
-   INFORMACIÓN DEL AUDIO
-================================================== */
+/* =====================================================
+   INFORMACIÓN AUDIO
+===================================================== */
 
 .audio-info {
-
     flex: 1;
-
     min-width: 0;
 }
-
 
 .audio-title {
 
@@ -188,9 +191,9 @@ body {
 }
 
 
-/* ==================================================
-   BARRA DEL AUDIO
-================================================== */
+/* =====================================================
+   BARRA AUDIO
+===================================================== */
 
 .audio-progress {
 
@@ -199,7 +202,6 @@ body {
     height: 7px;
 
     appearance: none;
-
     -webkit-appearance: none;
 
     border: none;
@@ -215,7 +217,6 @@ body {
 .audio-progress::-webkit-slider-thumb {
 
     appearance: none;
-
     -webkit-appearance: none;
 
     width: 12px;
@@ -244,9 +245,9 @@ body {
 }
 
 
-/* ==================================================
-   TIEMPO DEL AUDIO
-================================================== */
+/* =====================================================
+   TIEMPO AUDIO
+===================================================== */
 
 .audio-time {
 
@@ -262,9 +263,9 @@ body {
 }
 
 
-/* ==================================================
+/* =====================================================
    CONTADOR
-================================================== */
+===================================================== */
 
 .contador {
 
@@ -286,13 +287,13 @@ body {
 
     gap: 14px;
 
-    z-index: 10;
+    z-index: 20;
 }
 
 
-/* ==================================================
-   CAJAS DEL CONTADOR
-================================================== */
+/* =====================================================
+   CAJAS CONTADOR
+===================================================== */
 
 .caja {
 
@@ -327,9 +328,9 @@ body {
 }
 
 
-/* ==================================================
+/* =====================================================
    NÚMEROS
-================================================== */
+===================================================== */
 
 .numero {
 
@@ -345,9 +346,9 @@ body {
 }
 
 
-/* ==================================================
+/* =====================================================
    ETIQUETAS
-================================================== */
+===================================================== */
 
 .etiqueta {
 
@@ -359,35 +360,11 @@ body {
 }
 
 
-/* ==================================================
-   📱 CELULAR
-================================================== */
-
-/*
-   SOLO EN CELULAR:
-
-   Cambiamos la imagen horizontal
-   por la imagen vertical.
-*/
+/* =====================================================
+   CELULAR
+===================================================== */
 
 @media (max-width: 600px) {
-
-    .portada {
-
-        background-image:
-            url("PORTADA%20SITE%20VERTICAL.png");
-
-        background-size: cover;
-
-        background-position: center center;
-
-        background-repeat: no-repeat;
-    }
-
-
-    /* ------------------------------------------
-       AUDIO EN CELULAR
-    ------------------------------------------ */
 
     .audio-container {
 
@@ -395,10 +372,6 @@ body {
             2.5%,
             env(safe-area-inset-top)
         );
-
-        left: 50%;
-
-        transform: translateX(-50%);
 
         width: 90vw;
 
@@ -442,9 +415,9 @@ body {
     }
 
 
-    /* ------------------------------------------
-       CONTADOR EN CELULAR
-    ------------------------------------------ */
+    /* ---------------------------------------------
+       CONTADOR CELULAR
+    --------------------------------------------- */
 
     .contador {
 
@@ -485,17 +458,17 @@ body {
 
         font-size: 12px;
     }
+
 }
 
 
-/* ==================================================
-   📱 CELULARES MUY PEQUEÑOS
-================================================== */
+/* =====================================================
+   CELULARES MUY PEQUEÑOS
+===================================================== */
 
 @media (max-width: 380px) {
 
     .audio-container {
-
         width: 92vw;
     }
 
@@ -519,7 +492,6 @@ body {
 
 
     .audio-title {
-
         font-size: 14px;
     }
 
@@ -543,13 +515,11 @@ body {
 
 
     .numero {
-
         font-size: 19px;
     }
 
 
     .etiqueta {
-
         font-size: 10px;
     }
 
@@ -563,14 +533,35 @@ body {
 <body>
 
 
-<!-- ==================================================
-     PORTADA
-================================================== -->
-
 <div class="portada">
 
 
-    <!-- ==================================================
+    <!-- =================================================
+         PORTADA RESPONSIVA
+
+         PC:
+         PORTADA SITE.png
+
+         CELULAR:
+         PORTADA SITE VERTICAL.png
+    ================================================== -->
+
+    <picture>
+
+        <source
+            media="(max-width: 600px)"
+            srcset="PORTADA%20SITE%20VERTICAL.png">
+
+        <img
+            class="portada-imagen"
+            src="PORTADA%20SITE.png"
+            alt="Invitación Isabella">
+
+    </picture>
+
+
+
+    <!-- =================================================
          AUDIO
     ================================================== -->
 
@@ -592,9 +583,7 @@ body {
             <div class="audio-info">
 
                 <div class="audio-title">
-
                     Música
-
                 </div>
 
 
@@ -621,9 +610,7 @@ body {
         </div>
 
 
-        <!-- ==================================================
-             MP3 DE GITHUB
-        ================================================== -->
+        <!-- AUDIO MP3 DESDE GITHUB -->
 
         <audio
             id="musica"
@@ -639,7 +626,7 @@ body {
 
 
 
-    <!-- ==================================================
+    <!-- =================================================
          CONTADOR
     ================================================== -->
 
@@ -657,9 +644,7 @@ body {
             </div>
 
             <div class="etiqueta">
-
                 Días
-
             </div>
 
         </div>
@@ -676,9 +661,7 @@ body {
             </div>
 
             <div class="etiqueta">
-
                 Horas
-
             </div>
 
         </div>
@@ -695,9 +678,7 @@ body {
             </div>
 
             <div class="etiqueta">
-
                 Min
-
             </div>
 
         </div>
@@ -714,9 +695,7 @@ body {
             </div>
 
             <div class="etiqueta">
-
                 Seg
-
             </div>
 
         </div>
@@ -731,23 +710,12 @@ body {
 
 <script>
 
-
-/* ==================================================
+/* =====================================================
    CONTADOR
-
-   EVENTO:
-   26 DE SEPTIEMBRE DE 2026
-   19:00 HORAS - PERÚ
-
-   Perú = UTC -5
-
-   19:00 del día 26 en Perú
-   = 00:00 UTC del día 27
-================================================== */
+===================================================== */
 
 const fechaEvento =
     new Date("2026-09-27T00:00:00Z").getTime();
-
 
 
 function actualizarContador() {
@@ -755,23 +723,19 @@ function actualizarContador() {
     const ahora =
         new Date().getTime();
 
-    let diferencia =
+    const diferencia =
         fechaEvento - ahora;
 
 
     if (diferencia <= 0) {
 
-        document.getElementById("dias").textContent =
-            "00";
+        document.getElementById("dias").textContent = "00";
 
-        document.getElementById("horas").textContent =
-            "00";
+        document.getElementById("horas").textContent = "00";
 
-        document.getElementById("minutos").textContent =
-            "00";
+        document.getElementById("minutos").textContent = "00";
 
-        document.getElementById("segundos").textContent =
-            "00";
+        document.getElementById("segundos").textContent = "00";
 
         return;
     }
@@ -800,8 +764,7 @@ function actualizarContador() {
 
     const segundos =
         Math.floor(
-            (diferencia /
-            1000) % 60
+            (diferencia / 1000) % 60
         );
 
 
@@ -825,7 +788,6 @@ function actualizarContador() {
 
 actualizarContador();
 
-
 setInterval(
     actualizarContador,
     1000
@@ -833,30 +795,26 @@ setInterval(
 
 
 
-/* ==================================================
+/* =====================================================
    AUDIO
-================================================== */
+===================================================== */
 
 const musica =
     document.getElementById("musica");
 
-
 const audioButton =
     document.getElementById("audioButton");
 
-
 const audioProgress =
     document.getElementById("audioProgress");
-
 
 const audioTime =
     document.getElementById("audioTime");
 
 
-
-/* ==================================================
+/* =====================================================
    PLAY / PAUSA
-================================================== */
+===================================================== */
 
 audioButton.addEventListener(
     "click",
@@ -874,15 +832,13 @@ audioButton.addEventListener(
                 .catch(function(error) {
 
                     console.log(
-                        "No se pudo reproducir el audio:",
+                        "Error al reproducir:",
                         error
                     );
 
                 });
 
-        }
-
-        else {
+        } else {
 
             musica.pause();
 
@@ -895,10 +851,9 @@ audioButton.addEventListener(
 );
 
 
-
-/* ==================================================
-   CARGA DEL AUDIO
-================================================== */
+/* =====================================================
+   DURACIÓN
+===================================================== */
 
 musica.addEventListener(
     "loadedmetadata",
@@ -911,10 +866,9 @@ musica.addEventListener(
 );
 
 
-
-/* ==================================================
-   ACTUALIZAR BARRA
-================================================== */
+/* =====================================================
+   BARRA DE PROGRESO
+===================================================== */
 
 musica.addEventListener(
     "timeupdate",
@@ -945,10 +899,9 @@ musica.addEventListener(
 );
 
 
-
-/* ==================================================
-   CAMBIAR POSICIÓN DE LA CANCIÓN
-================================================== */
+/* =====================================================
+   MOVERSE EN LA CANCIÓN
+===================================================== */
 
 audioProgress.addEventListener(
     "input",
@@ -961,10 +914,9 @@ audioProgress.addEventListener(
 );
 
 
-
-/* ==================================================
-   CUANDO TERMINA LA CANCIÓN
-================================================== */
+/* =====================================================
+   CANCIÓN TERMINADA
+===================================================== */
 
 musica.addEventListener(
     "ended",
@@ -976,6 +928,9 @@ musica.addEventListener(
         audioProgress.value =
             0;
 
+        audioTime.textContent =
+            "0:00";
+
     }
 );
 
@@ -985,3 +940,4 @@ musica.addEventListener(
 </body>
 
 </html>
+```
