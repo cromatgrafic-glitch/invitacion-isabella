@@ -36,16 +36,19 @@ body {
 
 
 /* =========================================
-   PORTADA
+   PORTADA PRINCIPAL
+   COMPUTADORA
 ========================================= */
 
 .portada {
+
     position: relative;
 
     width: 100vw;
     height: 100vh;
 
-    background-image: url("PORTADA%20SITE.png");
+    background-image:
+        url("PORTADA%20SITE.png");
 
     background-size: cover;
 
@@ -58,7 +61,7 @@ body {
 
 
 /* =========================================
-   REPRODUCTOR PERSONALIZADO
+   REPRODUCTOR
 ========================================= */
 
 .audio-container {
@@ -85,9 +88,11 @@ body {
 
     padding: 6px 10px;
 
-    background: rgba(255, 255, 255, 0.48);
+    background:
+        rgba(255, 255, 255, 0.48);
 
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    border:
+        1px solid rgba(255, 255, 255, 0.35);
 
     border-radius: 24px;
 
@@ -96,7 +101,8 @@ body {
     -webkit-backdrop-filter: blur(6px);
 
     box-shadow:
-        0 3px 12px rgba(70, 65, 45, 0.10);
+        0 3px 12px
+        rgba(70, 65, 45, 0.10);
 }
 
 
@@ -115,7 +121,8 @@ body {
 
     border-radius: 50%;
 
-    background: rgba(115, 123, 90, 0.82);
+    background:
+        rgba(115, 123, 90, 0.82);
 
     color: white;
 
@@ -141,7 +148,8 @@ body {
 
     transform: scale(1.06);
 
-    background: rgba(115, 123, 90, 0.95);
+    background:
+        rgba(115, 123, 90, 0.95);
 }
 
 
@@ -210,12 +218,13 @@ body {
 
     border-radius: 10px;
 
-    transition: width 0.1s linear;
+    transition:
+        width 0.1s linear;
 }
 
 
 /* =========================================
-   TIEMPO
+   TIEMPO DEL AUDIO
 ========================================= */
 
 .audio-time {
@@ -259,7 +268,7 @@ body {
 
 
 /* =========================================
-   CUADROS DEL CONTADOR
+   CAJAS DEL CONTADOR
 ========================================= */
 
 .caja {
@@ -288,7 +297,8 @@ body {
     justify-content: center;
 
     box-shadow:
-        0 2px 8px rgba(90, 80, 50, 0.06);
+        0 2px 8px
+        rgba(90, 80, 50, 0.06);
 
     border:
         1px solid rgba(255,255,255,0.25);
@@ -329,15 +339,30 @@ body {
 
 /* =========================================
    CELULAR
+   USA LA PORTADA VERTICAL
 ========================================= */
 
 @media (max-width: 600px) {
 
     .portada {
 
-        background-position: center center;
+        background-image:
+            url("PORTADA%20SITE%20VERTICAL.png");
+
+        background-size:
+            100% 100%;
+
+        background-position:
+            center center;
+
+        background-repeat:
+            no-repeat;
     }
 
+
+    /* -----------------------------
+       AUDIO EN CELULAR
+    ----------------------------- */
 
     .audio-container {
 
@@ -384,6 +409,10 @@ body {
         min-width: 30px;
     }
 
+
+    /* -----------------------------
+       CONTADOR EN CELULAR
+    ----------------------------- */
 
     .contador {
 
@@ -640,10 +669,15 @@ body {
 
 <script>
 
+
 /* ==========================================
    CONTADOR
+
+   EVENTO:
    26 DE SEPTIEMBRE DE 2026
    19:00 HORA DE PERÚ
+
+   Perú = UTC -5
 ========================================== */
 
 
@@ -859,7 +893,7 @@ musica.addEventListener(
 
 
 /* ==========================================
-   DURACIÓN
+   DURACIÓN DEL AUDIO
 ========================================== */
 
 musica.addEventListener(
@@ -939,6 +973,7 @@ function actualizarTiempo() {
             .padStart(2, "0");
 
 }
+
 
 </script>
 
