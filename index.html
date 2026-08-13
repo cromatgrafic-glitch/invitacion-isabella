@@ -2,14 +2,12 @@
 <html lang="es">
 
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
 <title>Invitación Isabella</title>
-
 
 <style>
 
@@ -47,8 +45,11 @@ body {
     height: 100vh;
 
     background-image: url("PORTADA%20SITE.png");
+
     background-size: cover;
+
     background-position: center center;
+
     background-repeat: no-repeat;
 
     overflow: hidden;
@@ -70,14 +71,13 @@ body {
 }
 
 
-/* Barra completa */
-
 .reproductor {
 
     width: 270px;
     height: 42px;
 
     display: flex;
+
     align-items: center;
 
     gap: 10px;
@@ -91,6 +91,7 @@ body {
     border-radius: 24px;
 
     backdrop-filter: blur(6px);
+
     -webkit-backdrop-filter: blur(6px);
 
     box-shadow:
@@ -98,7 +99,9 @@ body {
 }
 
 
-/* Botón Play */
+/* =========================================
+   BOTÓN PLAY
+========================================= */
 
 .play-button {
 
@@ -116,7 +119,9 @@ body {
     color: white;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     cursor: pointer;
@@ -125,8 +130,9 @@ body {
 
     padding-left: 2px;
 
-    transition: transform 0.2s ease,
-                background 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
 }
 
 
@@ -138,7 +144,9 @@ body {
 }
 
 
-/* Zona central */
+/* =========================================
+   INFORMACIÓN DEL AUDIO
+========================================= */
 
 .audio-info {
 
@@ -156,7 +164,7 @@ body {
 }
 
 
-/* Texto */
+/* Nombre */
 
 .audio-title {
 
@@ -172,7 +180,9 @@ body {
 }
 
 
-/* Barra de progreso */
+/* =========================================
+   BARRA DE PROGRESO
+========================================= */
 
 .progress-container {
 
@@ -180,7 +190,8 @@ body {
 
     height: 5px;
 
-    background: rgba(115, 123, 90, 0.18);
+    background:
+        rgba(115, 123, 90, 0.18);
 
     border-radius: 10px;
 
@@ -204,7 +215,9 @@ body {
 }
 
 
-/* Tiempo */
+/* =========================================
+   TIEMPO
+========================================= */
 
 .audio-time {
 
@@ -246,7 +259,9 @@ body {
 }
 
 
-/* Cuadros */
+/* =========================================
+   CUADROS DEL CONTADOR
+========================================= */
 
 .caja {
 
@@ -258,9 +273,11 @@ body {
 
     border-radius: 12px;
 
-    background: rgba(255, 255, 255, 0.42);
+    background:
+        rgba(255, 255, 255, 0.42);
 
     backdrop-filter: blur(3px);
+
     -webkit-backdrop-filter: blur(3px);
 
     display: flex;
@@ -279,7 +296,9 @@ body {
 }
 
 
-/* Números */
+/* =========================================
+   NÚMEROS
+========================================= */
 
 .numero {
 
@@ -295,7 +314,9 @@ body {
 }
 
 
-/* Etiquetas */
+/* =========================================
+   ETIQUETAS
+========================================= */
 
 .etiqueta {
 
@@ -319,11 +340,10 @@ body {
     }
 
 
-    /* Reproductor */
-
     .audio-container {
 
         top: 3%;
+
         left: 4%;
     }
 
@@ -331,6 +351,7 @@ body {
     .reproductor {
 
         width: 225px;
+
         height: 39px;
 
         padding: 5px 8px;
@@ -344,6 +365,7 @@ body {
     .play-button {
 
         width: 29px;
+
         height: 29px;
 
         font-size: 12px;
@@ -363,8 +385,6 @@ body {
         min-width: 30px;
     }
 
-
-    /* Contador */
 
     .contador {
 
@@ -461,8 +481,6 @@ body {
         <div class="reproductor">
 
 
-            <!-- BOTÓN PLAY -->
-
             <button
                 class="play-button"
                 id="playButton"
@@ -472,8 +490,6 @@ body {
 
             </button>
 
-
-            <!-- INFORMACIÓN Y PROGRESO -->
 
             <div class="audio-info">
 
@@ -500,8 +516,6 @@ body {
             </div>
 
 
-            <!-- TIEMPO -->
-
             <div
                 class="audio-time"
                 id="audioTime">
@@ -514,14 +528,16 @@ body {
         </div>
 
 
-        <!-- AUDIO REAL, OCULTO -->
+        <!-- =================================
+             AUDIO DESDE GITHUB
+        ================================== -->
 
         <audio
             id="musica"
             preload="metadata">
 
             <source
-                src="https://drive.google.com/uc?export=download&id=1kl_ws4CFKa581VIDeT-GdW4OSPraZ6gV"
+                src="Abba%20-%20Slipping%20Through%20My%20Fingers.mp3"
                 type="audio/mpeg">
 
         </audio>
@@ -627,6 +643,7 @@ body {
 
 /* ==========================================
    CONTADOR
+   26/09/2026 - 19:00 HORA PERÚ
 ========================================== */
 
 
@@ -764,7 +781,6 @@ const audioTime =
    PLAY / PAUSA
 ========================================== */
 
-
 playButton.addEventListener(
     "click",
     function() {
@@ -772,12 +788,9 @@ playButton.addEventListener(
 
         if (musica.paused) {
 
-
             musica.play();
 
-
         } else {
-
 
             musica.pause();
 
@@ -791,7 +804,6 @@ playButton.addEventListener(
 /* ==========================================
    CAMBIAR ICONO
 ========================================== */
-
 
 musica.addEventListener(
     "play",
@@ -818,14 +830,15 @@ musica.addEventListener(
    BARRA DE PROGRESO
 ========================================== */
 
-
 musica.addEventListener(
     "timeupdate",
     function() {
 
 
         if (!musica.duration) {
+
             return;
+
         }
 
 
@@ -846,9 +859,8 @@ musica.addEventListener(
 
 
 /* ==========================================
-   DURACIÓN DEL AUDIO
+   DURACIÓN
 ========================================== */
-
 
 musica.addEventListener(
     "loadedmetadata",
@@ -865,31 +877,36 @@ musica.addEventListener(
    CLICK EN LA BARRA
 ========================================== */
 
-
 progressContainer.addEventListener(
     "click",
     function(event) {
 
 
         if (!musica.duration) {
+
             return;
+
         }
 
 
         const rect =
-            progressContainer.getBoundingClientRect();
+            progressContainer
+            .getBoundingClientRect();
 
 
         const posicion =
-            event.clientX - rect.left;
+            event.clientX -
+            rect.left;
 
 
         const porcentaje =
-            posicion / rect.width;
+            posicion /
+            rect.width;
 
 
         musica.currentTime =
-            porcentaje * musica.duration;
+            porcentaje *
+            musica.duration;
 
     }
 );
@@ -899,7 +916,6 @@ progressContainer.addEventListener(
 /* ==========================================
    MOSTRAR TIEMPO
 ========================================== */
-
 
 function actualizarTiempo() {
 
@@ -917,12 +933,12 @@ function actualizarTiempo() {
 
 
     audioTime.textContent =
-        minutos + ":" +
-        String(segundos).padStart(2, "0");
+        minutos +
+        ":" +
+        String(segundos)
+            .padStart(2, "0");
 
 }
-
-
 
 </script>
 
