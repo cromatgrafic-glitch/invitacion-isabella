@@ -1,141 +1,184 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Invitación Isabella</title>
 
+
 <style>
+
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+
 html,
 body {
+
     width: 100%;
     height: 100%;
+
     overflow: hidden;
+
 }
+
 
 body {
-    font-family: Georgia, "Times New Roman", serif;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     background: #f7f2e8;
+
 }
 
-/* ================================
+
+/* =========================================
    PORTADA
-================================ */
+========================================= */
 
 .portada {
+
     position: relative;
+
     width: 100vw;
     height: 100vh;
 
-    background-image: url("PORTADA%20SITE.png");
+    background-image:
+        url("PORTADA%20SITE.png");
+
     background-size: cover;
+
     background-position: center center;
+
     background-repeat: no-repeat;
 
     overflow: hidden;
+
 }
 
-/* ================================
+
+/* =========================================
    AUDIO
-================================ */
+========================================= */
 
 .audio-container {
+
     position: absolute;
+
     top: 4%;
+
     left: 4%;
-    z-index: 10;
+
+    z-index: 20;
+
 }
 
-/* Botón de audio sin barra */
 
-.audio-button {
-    width: 48px;
-    height: 48px;
+/* Reproductor */
 
-    border: none;
-    border-radius: 50%;
+.audio-container audio {
 
-    background: rgba(255, 255, 255, 0.48);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    width: 270px;
 
-    color: #737b5a;
+    height: 38px;
 
-    font-size: 20px;
-    cursor: pointer;
+    opacity: 0.58;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: 20px;
 
-    box-shadow: 0 2px 10px rgba(80, 70, 40, 0.12);
-
-    transition: all 0.25s ease;
 }
 
-.audio-button:hover {
-    background: rgba(255, 255, 255, 0.68);
-    transform: scale(1.05);
-}
 
-/* ================================
+/* =========================================
    CONTADOR
-================================ */
+========================================= */
 
 .contador {
+
     position: absolute;
 
     left: 50%;
+
     bottom: 11%;
 
     transform: translateX(-50%);
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     gap: 18px;
 
-    z-index: 5;
+    z-index: 10;
+
 }
 
-/* Cada cuadrado */
+
+/* =========================================
+   CUADROS DEL CONTADOR
+========================================= */
 
 .caja {
+
     width: 82px;
+
     min-height: 78px;
 
     padding: 9px 5px;
 
     border-radius: 12px;
 
-    background: rgba(255, 255, 255, 0.42);
+    background:
+        rgba(255, 255, 255, 0.42);
 
     backdrop-filter: blur(3px);
+
     -webkit-backdrop-filter: blur(3px);
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
     justify-content: center;
 
     box-shadow:
-        0 2px 8px rgba(90, 80, 50, 0.06);
+        0 2px 8px
+        rgba(90, 80, 50, 0.06);
 
-    border: 1px solid rgba(255,255,255,0.25);
+    border:
+        1px solid
+        rgba(255,255,255,0.25);
+
 }
 
-/* Número */
+
+/* =========================================
+   NÚMEROS
+========================================= */
 
 .numero {
+
     font-size: 30px;
+
     line-height: 1;
 
     font-weight: bold;
@@ -143,147 +186,256 @@ body {
     color: #737b5a;
 
     margin-bottom: 7px;
+
 }
 
-/* Texto */
+
+/* =========================================
+   ETIQUETAS
+========================================= */
 
 .etiqueta {
+
     font-size: 14px;
 
     color: #737b5a;
 
     letter-spacing: 0.5px;
+
 }
 
-/* ================================
-   RESPONSIVE CELULAR
-================================ */
+
+/* =========================================
+   CELULAR
+========================================= */
 
 @media (max-width: 600px) {
 
+
     .portada {
-        background-position: center center;
+
+        background-position:
+            center center;
+
     }
+
+
+    /* AUDIO */
 
     .audio-container {
+
         top: 3%;
+
         left: 4%;
+
     }
 
-    .audio-button {
-        width: 43px;
-        height: 43px;
-        font-size: 18px;
+
+    .audio-container audio {
+
+        width: 225px;
+
+        height: 35px;
+
+        opacity: 0.58;
+
     }
+
+
+    /* CONTADOR */
 
     .contador {
+
         bottom: 12%;
 
         gap: 7px;
 
         width: 94%;
+
     }
 
+
     .caja {
+
         width: 23vw;
+
         min-height: 67px;
 
         padding: 7px 3px;
 
         border-radius: 10px;
+
     }
+
 
     .numero {
+
         font-size: 22px;
+
         margin-bottom: 5px;
+
     }
+
 
     .etiqueta {
+
         font-size: 12px;
+
     }
+
 }
 
-/* ================================
-   CELULARES MUY PEQUEÑOS
-================================ */
+
+/* =========================================
+   CELULARES PEQUEÑOS
+========================================= */
 
 @media (max-width: 380px) {
 
+
     .contador {
+
         gap: 5px;
+
     }
+
 
     .caja {
+
         min-height: 62px;
+
     }
+
 
     .numero {
+
         font-size: 19px;
+
     }
 
+
     .etiqueta {
+
         font-size: 10px;
+
     }
+
+
+    .audio-container audio {
+
+        width: 205px;
+
+    }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="portada">
 
-    <!-- ============================
+
+    <!-- =====================================
          AUDIO
-    ============================= -->
+    ====================================== -->
 
     <div class="audio-container">
 
-        <button
-            class="audio-button"
-            id="audioButton"
-            aria-label="Reproducir música">
-            ▶
-        </button>
+        <audio
+            id="musica"
+            controls
+            preload="metadata">
 
-        <audio id="musica" preload="auto">
-
-            <!-- AUDIO DE GOOGLE DRIVE -->
             <source
                 src="https://drive.google.com/uc?export=download&id=1kl_ws4CFKa581VIDeT-GdW4OSPraZ6gV"
                 type="audio/mpeg">
+
+            Tu navegador no soporta
+            el reproductor de audio.
 
         </audio>
 
     </div>
 
 
-    <!-- ============================
+    <!-- =====================================
          CONTADOR
-    ============================= -->
+    ====================================== -->
 
     <div class="contador">
 
-        <div class="caja">
-            <div class="numero" id="dias">00</div>
-            <div class="etiqueta">Días</div>
-        </div>
 
         <div class="caja">
-            <div class="numero" id="horas">00</div>
-            <div class="etiqueta">Horas</div>
+
+            <div
+                class="numero"
+                id="dias">
+                00
+            </div>
+
+            <div
+                class="etiqueta">
+                Días
+            </div>
+
         </div>
 
-        <div class="caja">
-            <div class="numero" id="minutos">00</div>
-            <div class="etiqueta">Min</div>
-        </div>
 
         <div class="caja">
-            <div class="numero" id="segundos">00</div>
-            <div class="etiqueta">Seg</div>
+
+            <div
+                class="numero"
+                id="horas">
+                00
+            </div>
+
+            <div
+                class="etiqueta">
+                Horas
+            </div>
+
         </div>
+
+
+        <div class="caja">
+
+            <div
+                class="numero"
+                id="minutos">
+                00
+            </div>
+
+            <div
+                class="etiqueta">
+                Min
+            </div>
+
+        </div>
+
+
+        <div class="caja">
+
+            <div
+                class="numero"
+                id="segundos">
+                00
+            </div>
+
+            <div
+                class="etiqueta">
+                Seg
+            </div>
+
+        </div>
+
 
     </div>
+
 
 </div>
 
@@ -291,107 +443,180 @@ body {
 <script>
 
 /* ==========================================
-   CONTADOR
+   FECHA DEL EVENTO
 
-   FECHA:
    26 DE SEPTIEMBRE DE 2026
-   19:00 HORAS - PERÚ
+   19:00 HORAS
+   HORA DE PERÚ
 
    Perú = UTC -5
-   Por eso usamos 00:00 UTC del día 27.
+
+   19:00 Perú
+   =
+   00:00 UTC del 27 de septiembre
 ========================================== */
 
-const fechaEvento = new Date("2026-09-27T00:00:00Z").getTime();
+
+const fechaEvento =
+    new Date(
+        "2026-09-27T00:00:00Z"
+    ).getTime();
+
+
+
+/* ==========================================
+   ACTUALIZAR CONTADOR
+========================================== */
 
 
 function actualizarContador() {
 
-    const ahora = new Date().getTime();
 
-    let diferencia = fechaEvento - ahora;
+    const ahora =
+        new Date().getTime();
+
+
+    const diferencia =
+        fechaEvento - ahora;
+
+
+
+    /* ================================
+       CUANDO LLEGUE LA FECHA
+    ================================= */
 
 
     if (diferencia <= 0) {
 
-        document.getElementById("dias").textContent = "00";
-        document.getElementById("horas").textContent = "00";
-        document.getElementById("minutos").textContent = "00";
-        document.getElementById("segundos").textContent = "00";
+
+        document
+            .getElementById("dias")
+            .textContent = "00";
+
+
+        document
+            .getElementById("horas")
+            .textContent = "00";
+
+
+        document
+            .getElementById("minutos")
+            .textContent = "00";
+
+
+        document
+            .getElementById("segundos")
+            .textContent = "00";
+
 
         return;
+
     }
 
 
-    const dias = Math.floor(
-        diferencia / (1000 * 60 * 60 * 24)
-    );
 
-    const horas = Math.floor(
-        (diferencia / (1000 * 60 * 60)) % 24
-    );
-
-    const minutos = Math.floor(
-        (diferencia / (1000 * 60)) % 60
-    );
-
-    const segundos = Math.floor(
-        (diferencia / 1000) % 60
-    );
+    /* ================================
+       DÍAS
+    ================================= */
 
 
-    document.getElementById("dias").textContent =
-        String(dias).padStart(2, "0");
+    const dias =
+        Math.floor(
+            diferencia /
+            (1000 * 60 * 60 * 24)
+        );
 
-    document.getElementById("horas").textContent =
-        String(horas).padStart(2, "0");
 
-    document.getElementById("minutos").textContent =
-        String(minutos).padStart(2, "0");
 
-    document.getElementById("segundos").textContent =
-        String(segundos).padStart(2, "0");
+    /* ================================
+       HORAS
+    ================================= */
+
+
+    const horas =
+        Math.floor(
+            (diferencia /
+            (1000 * 60 * 60)) % 24
+        );
+
+
+
+    /* ================================
+       MINUTOS
+    ================================= */
+
+
+    const minutos =
+        Math.floor(
+            (diferencia /
+            (1000 * 60)) % 60
+        );
+
+
+
+    /* ================================
+       SEGUNDOS
+    ================================= */
+
+
+    const segundos =
+        Math.floor(
+            (diferencia / 1000) % 60
+        );
+
+
+
+    /* ================================
+       MOSTRAR RESULTADO
+    ================================= */
+
+
+    document
+        .getElementById("dias")
+        .textContent =
+        String(dias)
+        .padStart(2, "0");
+
+
+    document
+        .getElementById("horas")
+        .textContent =
+        String(horas)
+        .padStart(2, "0");
+
+
+    document
+        .getElementById("minutos")
+        .textContent =
+        String(minutos)
+        .padStart(2, "0");
+
+
+    document
+        .getElementById("segundos")
+        .textContent =
+        String(segundos)
+        .padStart(2, "0");
+
 }
+
+
+/* ==========================================
+   INICIAR CONTADOR
+========================================== */
 
 
 actualizarContador();
 
-setInterval(actualizarContador, 1000);
 
-
-/* ==========================================
-   AUDIO
-========================================== */
-
-const musica = document.getElementById("musica");
-const audioButton = document.getElementById("audioButton");
-
-
-audioButton.addEventListener("click", function() {
-
-    if (musica.paused) {
-
-        musica.play();
-
-        audioButton.textContent = "❚❚";
-
-    } else {
-
-        musica.pause();
-
-        audioButton.textContent = "▶";
-
-    }
-
-});
-
-
-musica.addEventListener("ended", function() {
-
-    audioButton.textContent = "▶";
-
-});
+setInterval(
+    actualizarContador,
+    1000
+);
 
 </script>
 
+
 </body>
+
 </html>
