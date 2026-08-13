@@ -23,27 +23,16 @@
     padding: 0;
 }
 
-
 html,
 body {
-
     width: 100%;
     height: 100%;
-
     overflow: hidden;
-
 }
 
-
 body {
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
+    font-family: Georgia, "Times New Roman", serif;
     background: #f7f2e8;
-
 }
 
 
@@ -52,28 +41,22 @@ body {
 ========================================= */
 
 .portada {
-
     position: relative;
 
     width: 100vw;
     height: 100vh;
 
-    background-image:
-        url("PORTADA%20SITE.png");
-
+    background-image: url("PORTADA%20SITE.png");
     background-size: cover;
-
     background-position: center center;
-
     background-repeat: no-repeat;
 
     overflow: hidden;
-
 }
 
 
 /* =========================================
-   AUDIO
+   REPRODUCTOR PERSONALIZADO
 ========================================= */
 
 .audio-container {
@@ -81,26 +64,159 @@ body {
     position: absolute;
 
     top: 4%;
-
     left: 4%;
 
     z-index: 20;
-
 }
 
 
-/* Reproductor */
+/* Barra completa */
 
-.audio-container audio {
+.reproductor {
 
     width: 270px;
+    height: 42px;
 
-    height: 38px;
+    display: flex;
+    align-items: center;
 
-    opacity: 0.58;
+    gap: 10px;
 
-    border-radius: 20px;
+    padding: 6px 10px;
 
+    background: rgba(255, 255, 255, 0.48);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    border-radius: 24px;
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    box-shadow:
+        0 3px 12px rgba(70, 65, 45, 0.10);
+}
+
+
+/* Botón Play */
+
+.play-button {
+
+    flex-shrink: 0;
+
+    width: 30px;
+    height: 30px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(115, 123, 90, 0.82);
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    padding-left: 2px;
+
+    transition: transform 0.2s ease,
+                background 0.2s ease;
+}
+
+
+.play-button:hover {
+
+    transform: scale(1.06);
+
+    background: rgba(115, 123, 90, 0.95);
+}
+
+
+/* Zona central */
+
+.audio-info {
+
+    flex: 1;
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 4px;
+}
+
+
+/* Texto */
+
+.audio-title {
+
+    font-size: 11px;
+
+    color: #737b5a;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* Barra de progreso */
+
+.progress-container {
+
+    width: 100%;
+
+    height: 5px;
+
+    background: rgba(115, 123, 90, 0.18);
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+}
+
+
+.progress-bar {
+
+    width: 0%;
+
+    height: 100%;
+
+    background: #737b5a;
+
+    border-radius: 10px;
+
+    transition: width 0.1s linear;
+}
+
+
+/* Tiempo */
+
+.audio-time {
+
+    flex-shrink: 0;
+
+    font-size: 9px;
+
+    color: #737b5a;
+
+    min-width: 34px;
+
+    text-align: right;
 }
 
 
@@ -127,13 +243,10 @@ body {
     gap: 18px;
 
     z-index: 10;
-
 }
 
 
-/* =========================================
-   CUADROS DEL CONTADOR
-========================================= */
+/* Cuadros */
 
 .caja {
 
@@ -145,11 +258,9 @@ body {
 
     border-radius: 12px;
 
-    background:
-        rgba(255, 255, 255, 0.42);
+    background: rgba(255, 255, 255, 0.42);
 
     backdrop-filter: blur(3px);
-
     -webkit-backdrop-filter: blur(3px);
 
     display: flex;
@@ -161,19 +272,14 @@ body {
     justify-content: center;
 
     box-shadow:
-        0 2px 8px
-        rgba(90, 80, 50, 0.06);
+        0 2px 8px rgba(90, 80, 50, 0.06);
 
     border:
-        1px solid
-        rgba(255,255,255,0.25);
-
+        1px solid rgba(255,255,255,0.25);
 }
 
 
-/* =========================================
-   NÚMEROS
-========================================= */
+/* Números */
 
 .numero {
 
@@ -186,13 +292,10 @@ body {
     color: #737b5a;
 
     margin-bottom: 7px;
-
 }
 
 
-/* =========================================
-   ETIQUETAS
-========================================= */
+/* Etiquetas */
 
 .etiqueta {
 
@@ -201,7 +304,6 @@ body {
     color: #737b5a;
 
     letter-spacing: 0.5px;
-
 }
 
 
@@ -211,38 +313,58 @@ body {
 
 @media (max-width: 600px) {
 
-
     .portada {
 
-        background-position:
-            center center;
-
+        background-position: center center;
     }
 
 
-    /* AUDIO */
+    /* Reproductor */
 
     .audio-container {
 
         top: 3%;
-
         left: 4%;
-
     }
 
 
-    .audio-container audio {
+    .reproductor {
 
         width: 225px;
+        height: 39px;
 
-        height: 35px;
+        padding: 5px 8px;
 
-        opacity: 0.58;
+        gap: 8px;
 
+        border-radius: 22px;
     }
 
 
-    /* CONTADOR */
+    .play-button {
+
+        width: 29px;
+        height: 29px;
+
+        font-size: 12px;
+    }
+
+
+    .audio-title {
+
+        font-size: 10px;
+    }
+
+
+    .audio-time {
+
+        font-size: 8px;
+
+        min-width: 30px;
+    }
+
+
+    /* Contador */
 
     .contador {
 
@@ -251,7 +373,6 @@ body {
         gap: 7px;
 
         width: 94%;
-
     }
 
 
@@ -264,7 +385,6 @@ body {
         padding: 7px 3px;
 
         border-radius: 10px;
-
     }
 
 
@@ -273,58 +393,50 @@ body {
         font-size: 22px;
 
         margin-bottom: 5px;
-
     }
 
 
     .etiqueta {
 
         font-size: 12px;
-
     }
 
 }
 
 
 /* =========================================
-   CELULARES PEQUEÑOS
+   CELULARES MUY PEQUEÑOS
 ========================================= */
 
 @media (max-width: 380px) {
 
-
     .contador {
 
         gap: 5px;
-
     }
 
 
     .caja {
 
         min-height: 62px;
-
     }
 
 
     .numero {
 
         font-size: 19px;
-
     }
 
 
     .etiqueta {
 
         font-size: 10px;
-
     }
 
 
-    .audio-container audio {
+    .reproductor {
 
         width: 205px;
-
     }
 
 }
@@ -341,26 +453,81 @@ body {
 
 
     <!-- =====================================
-         AUDIO
+         REPRODUCTOR DE AUDIO
     ====================================== -->
 
     <div class="audio-container">
 
+        <div class="reproductor">
+
+
+            <!-- BOTÓN PLAY -->
+
+            <button
+                class="play-button"
+                id="playButton"
+                aria-label="Reproducir música">
+
+                ▶
+
+            </button>
+
+
+            <!-- INFORMACIÓN Y PROGRESO -->
+
+            <div class="audio-info">
+
+
+                <div class="audio-title">
+
+                    Música
+
+                </div>
+
+
+                <div
+                    class="progress-container"
+                    id="progressContainer">
+
+                    <div
+                        class="progress-bar"
+                        id="progressBar">
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- TIEMPO -->
+
+            <div
+                class="audio-time"
+                id="audioTime">
+
+                0:00
+
+            </div>
+
+
+        </div>
+
+
+        <!-- AUDIO REAL, OCULTO -->
+
         <audio
             id="musica"
-            controls
             preload="metadata">
 
             <source
                 src="https://drive.google.com/uc?export=download&id=1kl_ws4CFKa581VIDeT-GdW4OSPraZ6gV"
                 type="audio/mpeg">
 
-            Tu navegador no soporta
-            el reproductor de audio.
-
         </audio>
 
     </div>
+
 
 
     <!-- =====================================
@@ -375,15 +542,19 @@ body {
             <div
                 class="numero"
                 id="dias">
+
                 00
+
             </div>
 
-            <div
-                class="etiqueta">
+            <div class="etiqueta">
+
                 Días
+
             </div>
 
         </div>
+
 
 
         <div class="caja">
@@ -391,15 +562,19 @@ body {
             <div
                 class="numero"
                 id="horas">
+
                 00
+
             </div>
 
-            <div
-                class="etiqueta">
+            <div class="etiqueta">
+
                 Horas
+
             </div>
 
         </div>
+
 
 
         <div class="caja">
@@ -407,15 +582,19 @@ body {
             <div
                 class="numero"
                 id="minutos">
+
                 00
+
             </div>
 
-            <div
-                class="etiqueta">
+            <div class="etiqueta">
+
                 Min
+
             </div>
 
         </div>
+
 
 
         <div class="caja">
@@ -423,12 +602,15 @@ body {
             <div
                 class="numero"
                 id="segundos">
+
                 00
+
             </div>
 
-            <div
-                class="etiqueta">
+            <div class="etiqueta">
+
                 Seg
+
             </div>
 
         </div>
@@ -440,20 +622,11 @@ body {
 </div>
 
 
+
 <script>
 
 /* ==========================================
-   FECHA DEL EVENTO
-
-   26 DE SEPTIEMBRE DE 2026
-   19:00 HORAS
-   HORA DE PERÚ
-
-   Perú = UTC -5
-
-   19:00 Perú
-   =
-   00:00 UTC del 27 de septiembre
+   CONTADOR
 ========================================== */
 
 
@@ -462,11 +635,6 @@ const fechaEvento =
         "2026-09-27T00:00:00Z"
     ).getTime();
 
-
-
-/* ==========================================
-   ACTUALIZAR CONTADOR
-========================================== */
 
 
 function actualizarContador() {
@@ -481,31 +649,22 @@ function actualizarContador() {
 
 
 
-    /* ================================
-       CUANDO LLEGUE LA FECHA
-    ================================= */
-
-
     if (diferencia <= 0) {
 
 
-        document
-            .getElementById("dias")
+        document.getElementById("dias")
             .textContent = "00";
 
 
-        document
-            .getElementById("horas")
+        document.getElementById("horas")
             .textContent = "00";
 
 
-        document
-            .getElementById("minutos")
+        document.getElementById("minutos")
             .textContent = "00";
 
 
-        document
-            .getElementById("segundos")
+        document.getElementById("segundos")
             .textContent = "00";
 
 
@@ -515,22 +674,11 @@ function actualizarContador() {
 
 
 
-    /* ================================
-       DÍAS
-    ================================= */
-
-
     const dias =
         Math.floor(
             diferencia /
             (1000 * 60 * 60 * 24)
         );
-
-
-
-    /* ================================
-       HORAS
-    ================================= */
 
 
     const horas =
@@ -540,23 +688,11 @@ function actualizarContador() {
         );
 
 
-
-    /* ================================
-       MINUTOS
-    ================================= */
-
-
     const minutos =
         Math.floor(
             (diferencia /
             (1000 * 60)) % 60
         );
-
-
-
-    /* ================================
-       SEGUNDOS
-    ================================= */
 
 
     const segundos =
@@ -566,44 +702,26 @@ function actualizarContador() {
 
 
 
-    /* ================================
-       MOSTRAR RESULTADO
-    ================================= */
-
-
-    document
-        .getElementById("dias")
+    document.getElementById("dias")
         .textContent =
-        String(dias)
-        .padStart(2, "0");
+        String(dias).padStart(2, "0");
 
 
-    document
-        .getElementById("horas")
+    document.getElementById("horas")
         .textContent =
-        String(horas)
-        .padStart(2, "0");
+        String(horas).padStart(2, "0");
 
 
-    document
-        .getElementById("minutos")
+    document.getElementById("minutos")
         .textContent =
-        String(minutos)
-        .padStart(2, "0");
+        String(minutos).padStart(2, "0");
 
 
-    document
-        .getElementById("segundos")
+    document.getElementById("segundos")
         .textContent =
-        String(segundos)
-        .padStart(2, "0");
+        String(segundos).padStart(2, "0");
 
 }
-
-
-/* ==========================================
-   INICIAR CONTADOR
-========================================== */
 
 
 actualizarContador();
@@ -613,6 +731,198 @@ setInterval(
     actualizarContador,
     1000
 );
+
+
+
+/* ==========================================
+   REPRODUCTOR PERSONALIZADO
+========================================== */
+
+
+const musica =
+    document.getElementById("musica");
+
+
+const playButton =
+    document.getElementById("playButton");
+
+
+const progressContainer =
+    document.getElementById("progressContainer");
+
+
+const progressBar =
+    document.getElementById("progressBar");
+
+
+const audioTime =
+    document.getElementById("audioTime");
+
+
+
+/* ==========================================
+   PLAY / PAUSA
+========================================== */
+
+
+playButton.addEventListener(
+    "click",
+    function() {
+
+
+        if (musica.paused) {
+
+
+            musica.play();
+
+
+        } else {
+
+
+            musica.pause();
+
+        }
+
+    }
+);
+
+
+
+/* ==========================================
+   CAMBIAR ICONO
+========================================== */
+
+
+musica.addEventListener(
+    "play",
+    function() {
+
+        playButton.textContent = "❚❚";
+
+    }
+);
+
+
+musica.addEventListener(
+    "pause",
+    function() {
+
+        playButton.textContent = "▶";
+
+    }
+);
+
+
+
+/* ==========================================
+   BARRA DE PROGRESO
+========================================== */
+
+
+musica.addEventListener(
+    "timeupdate",
+    function() {
+
+
+        if (!musica.duration) {
+            return;
+        }
+
+
+        const porcentaje =
+            (musica.currentTime /
+            musica.duration) * 100;
+
+
+        progressBar.style.width =
+            porcentaje + "%";
+
+
+        actualizarTiempo();
+
+    }
+);
+
+
+
+/* ==========================================
+   DURACIÓN DEL AUDIO
+========================================== */
+
+
+musica.addEventListener(
+    "loadedmetadata",
+    function() {
+
+        actualizarTiempo();
+
+    }
+);
+
+
+
+/* ==========================================
+   CLICK EN LA BARRA
+========================================== */
+
+
+progressContainer.addEventListener(
+    "click",
+    function(event) {
+
+
+        if (!musica.duration) {
+            return;
+        }
+
+
+        const rect =
+            progressContainer.getBoundingClientRect();
+
+
+        const posicion =
+            event.clientX - rect.left;
+
+
+        const porcentaje =
+            posicion / rect.width;
+
+
+        musica.currentTime =
+            porcentaje * musica.duration;
+
+    }
+);
+
+
+
+/* ==========================================
+   MOSTRAR TIEMPO
+========================================== */
+
+
+function actualizarTiempo() {
+
+
+    const minutos =
+        Math.floor(
+            musica.currentTime / 60
+        );
+
+
+    const segundos =
+        Math.floor(
+            musica.currentTime % 60
+        );
+
+
+    audioTime.textContent =
+        minutos + ":" +
+        String(segundos).padStart(2, "0");
+
+}
+
+
 
 </script>
 
