@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Invitación Isabella</title>
 
 <style>
 
-/* =========================================
+/* ================================
    CONFIGURACIÓN GENERAL
-========================================= */
+================================ */
 
 * {
     box-sizing: border-box;
@@ -24,131 +21,153 @@
 html,
 body {
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    min-height: 100%;
 }
 
 body {
-    font-family: Georgia, "Times New Roman", serif;
     background: #f7f2e8;
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x: hidden;
 }
 
 
-/* =========================================
-   PORTADA - COMPUTADORA
-========================================= */
+/* ================================
+   CONTENEDOR PRINCIPAL
+================================ */
 
 .portada {
-
     position: relative;
 
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
 
-    background-image:
-        url("PORTADA%20SITE.png");
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 
-    background-size: cover;
-
-    background-position: center center;
-
-    background-repeat: no-repeat;
+    background: #f7f2e8;
 
     overflow: hidden;
 }
 
 
-/* =========================================
-   REPRODUCTOR DE AUDIO
-========================================= */
+/* ================================
+   IMAGEN DE PORTADA
+================================ */
+
+/*
+   IMPORTANTE:
+
+   La imagen conserva SIEMPRE
+   sus proporciones originales.
+
+   No se estira.
+   No se aplasta.
+   No se deforma.
+*/
+
+.portada-imagen {
+    display: block;
+
+    width: 100vw;
+    height: auto;
+
+    max-width: 100%;
+
+    object-fit: contain;
+
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* ================================
+   AUDIO
+================================ */
 
 .audio-container {
 
     position: absolute;
 
-    top: 4%;
-    left: 4%;
+    top: 28px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
 
     z-index: 20;
+
+    width: min(420px, 88vw);
+
 }
 
 
-.reproductor {
+/* Reproductor */
 
-    width: 270px;
-    height: 42px;
+.audio-player {
+
+    width: 100%;
 
     display: flex;
 
     align-items: center;
 
-    gap: 10px;
+    gap: 14px;
 
-    padding: 6px 10px;
+    padding: 10px 14px 10px 10px;
 
-    background: rgba(255, 255, 255, 0.48);
+    border-radius: 50px;
 
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.72);
 
-    border-radius: 24px;
+    backdrop-filter: blur(8px);
 
-    backdrop-filter: blur(6px);
-
-    -webkit-backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(8px);
 
     box-shadow:
-        0 3px 12px rgba(70, 65, 45, 0.10);
+        0 4px 18px rgba(80, 70, 40, 0.15);
+
 }
 
 
-/* =========================================
-   BOTÓN PLAY
-========================================= */
+/* Botón */
 
-.play-button {
+.audio-button {
 
     flex-shrink: 0;
 
-    width: 30px;
-    height: 30px;
+    width: 52px;
+    height: 52px;
 
     border: none;
 
     border-radius: 50%;
 
-    background: rgba(115, 123, 90, 0.82);
+    background: rgba(115, 123, 90, 0.92);
 
     color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
-    cursor: pointer;
+    transition: transform 0.2s ease;
 
-    font-size: 13px;
+}
 
-    padding-left: 2px;
+.audio-button:active {
 
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease;
+    transform: scale(0.94);
+
 }
 
 
-.play-button:hover {
-
-    transform: scale(1.06);
-
-    background: rgba(115, 123, 90, 0.95);
-}
-
-
-/* =========================================
-   INFORMACIÓN DEL AUDIO
-========================================= */
+/* Información del audio */
 
 .audio-info {
 
@@ -156,86 +175,70 @@ body {
 
     min-width: 0;
 
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    gap: 4px;
 }
 
+
+/* Nombre */
 
 .audio-title {
 
-    font-size: 11px;
+    font-size: 16px;
 
     color: #737b5a;
 
-    white-space: nowrap;
+    margin-bottom: 5px;
 
-    overflow: hidden;
-
-    text-overflow: ellipsis;
 }
 
 
-/* =========================================
-   BARRA DE PROGRESO
-========================================= */
+/* Barra */
 
-.progress-container {
+.audio-progress {
 
     width: 100%;
 
-    height: 5px;
-
-    background:
-        rgba(115, 123, 90, 0.18);
+    height: 6px;
 
     border-radius: 10px;
 
-    cursor: pointer;
+    background: rgba(115, 123, 90, 0.18);
 
     overflow: hidden;
+
 }
 
 
-.progress-bar {
+/* Progreso */
+
+.audio-progress-bar {
 
     width: 0%;
 
     height: 100%;
 
-    background: #737b5a;
-
     border-radius: 10px;
 
-    transition: width 0.1s linear;
+    background: #737b5a;
+
 }
 
 
-/* =========================================
-   TIEMPO DEL AUDIO
-========================================= */
+/* Tiempo */
 
 .audio-time {
 
     flex-shrink: 0;
 
-    font-size: 9px;
+    font-size: 13px;
 
     color: #737b5a;
 
-    min-width: 34px;
-
-    text-align: right;
 }
 
 
-/* =========================================
+/* ================================
    CONTADOR
-========================================= */
+================================ */
 
 .contador {
 
@@ -243,9 +246,13 @@ body {
 
     left: 50%;
 
-    bottom: 11%;
+    bottom: 7%;
 
     transform: translateX(-50%);
+
+    width: 94%;
+
+    max-width: 760px;
 
     display: flex;
 
@@ -253,52 +260,48 @@ body {
 
     align-items: center;
 
-    gap: 18px;
+    gap: 14px;
 
-    z-index: 10;
+    z-index: 15;
 }
 
 
-/* =========================================
-   CAJAS DEL CONTADOR
-========================================= */
+/* Cada caja */
 
 .caja {
 
-    width: 82px;
+    flex: 1;
 
-    min-height: 78px;
+    min-width: 0;
 
-    padding: 9px 5px;
+    min-height: 82px;
 
-    border-radius: 12px;
+    padding: 10px 5px;
 
-    background:
-        rgba(255, 255, 255, 0.42);
+    border-radius: 13px;
 
-    backdrop-filter: blur(3px);
+    background: rgba(255, 255, 255, 0.68);
 
-    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(5px);
+
+    -webkit-backdrop-filter: blur(5px);
+
+    border: 1px solid rgba(255,255,255,0.35);
+
+    box-shadow:
+        0 3px 12px rgba(90, 80, 50, 0.10);
 
     display: flex;
 
     flex-direction: column;
 
-    align-items: center;
-
     justify-content: center;
 
-    box-shadow:
-        0 2px 8px rgba(90, 80, 50, 0.06);
-
-    border:
-        1px solid rgba(255,255,255,0.25);
+    align-items: center;
 }
 
 
-/* =========================================
-   NÚMEROS
-========================================= */
+/* Número */
 
 .numero {
 
@@ -314,9 +317,7 @@ body {
 }
 
 
-/* =========================================
-   ETIQUETAS
-========================================= */
+/* Texto */
 
 .etiqueta {
 
@@ -328,157 +329,183 @@ body {
 }
 
 
-/* =========================================
+/* ================================
    CELULAR
-   USA PORTADA VERTICAL
-========================================= */
+================================ */
 
 @media (max-width: 600px) {
 
     .portada {
 
-        background-image:
-            url("https://cromatgrafic-glitch.github.io/invitacion-isabella/PORTADA%20SITE%20VERTICAL.png");
+        width: 100vw;
 
-        background-size: 100% 100%;
+        min-height: 100vh;
 
-        background-position: center center;
-
-        background-repeat: no-repeat;
     }
 
 
-    /* =====================================
-       AUDIO EN CELULAR
-    ====================================== */
+    /*
+       La imagen ocupa exactamente
+       el ancho disponible y mantiene
+       su proporción.
+    */
+
+    .portada-imagen {
+
+        width: 100vw;
+
+        height: auto;
+
+    }
+
+
+    /* AUDIO CENTRADO */
 
     .audio-container {
 
-        top: 3%;
+        top: 18px;
 
-        left: 4%;
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        width: 88vw;
+
+        max-width: 400px;
+
     }
 
 
-    .reproductor {
+    .audio-player {
 
-        width: 225px;
+        padding: 8px 12px 8px 8px;
 
-        height: 39px;
-
-        padding: 5px 8px;
-
-        gap: 8px;
-
-        border-radius: 22px;
     }
 
 
-    .play-button {
+    .audio-button {
 
-        width: 29px;
+        width: 46px;
 
-        height: 29px;
+        height: 46px;
 
-        font-size: 12px;
+        font-size: 18px;
+
     }
 
 
     .audio-title {
 
-        font-size: 10px;
+        font-size: 15px;
+
     }
 
 
     .audio-time {
 
-        font-size: 8px;
+        font-size: 12px;
 
-        min-width: 30px;
     }
 
 
-    /* =====================================
-       CONTADOR EN CELULAR
-    ====================================== */
+    /* CONTADOR */
 
     .contador {
 
-        bottom: 12%;
+        width: 94%;
+
+        bottom: 5%;
 
         gap: 7px;
 
-        width: 94%;
     }
 
 
     .caja {
 
-        width: 23vw;
-
-        min-height: 67px;
+        min-height: 70px;
 
         padding: 7px 3px;
 
-        border-radius: 10px;
+        border-radius: 11px;
+
     }
 
 
     .numero {
 
-        font-size: 22px;
+        font-size: 23px;
 
         margin-bottom: 5px;
+
     }
 
 
     .etiqueta {
 
         font-size: 12px;
+
     }
 
 }
 
 
-/* =========================================
+/* ================================
    CELULARES MUY PEQUEÑOS
-========================================= */
+================================ */
 
 @media (max-width: 380px) {
+
+    .audio-container {
+
+        width: 92vw;
+
+        top: 14px;
+
+    }
+
+
+    .audio-button {
+
+        width: 42px;
+
+        height: 42px;
+
+    }
+
 
     .contador {
 
         gap: 5px;
+
+        bottom: 4%;
+
     }
 
 
     .caja {
 
-        min-height: 62px;
+        min-height: 63px;
+
     }
 
 
     .numero {
 
-        font-size: 19px;
+        font-size: 20px;
+
     }
 
 
     .etiqueta {
 
         font-size: 10px;
-    }
 
-
-    .reproductor {
-
-        width: 205px;
     }
 
 }
 
 </style>
-
 </head>
 
 
@@ -488,46 +515,47 @@ body {
 <div class="portada">
 
 
-    <!-- =====================================
-         REPRODUCTOR DE AUDIO
-    ====================================== -->
+    <!-- =================================
+         PORTADA VERTICAL
+    ================================== -->
+
+    <img
+        class="portada-imagen"
+        src="PORTADA%20SITE%20VERTICAL.png"
+        alt="Invitación Isabella"
+    >
+
+
+    <!-- =================================
+         REPRODUCTOR DE MÚSICA
+    ================================== -->
 
     <div class="audio-container">
 
-        <div class="reproductor">
-
+        <div class="audio-player">
 
             <button
-                class="play-button"
-                id="playButton"
+                class="audio-button"
+                id="audioButton"
                 aria-label="Reproducir música">
-
                 ▶
-
             </button>
 
 
             <div class="audio-info">
 
-
                 <div class="audio-title">
-
                     Música
-
                 </div>
 
-
-                <div
-                    class="progress-container"
-                    id="progressContainer">
+                <div class="audio-progress">
 
                     <div
-                        class="progress-bar"
+                        class="audio-progress-bar"
                         id="progressBar">
                     </div>
 
                 </div>
-
 
             </div>
 
@@ -535,25 +563,26 @@ body {
             <div
                 class="audio-time"
                 id="audioTime">
-
                 0:00
-
             </div>
-
 
         </div>
 
 
-        <!-- =================================
-             AUDIO DESDE GITHUB
-        ================================== -->
+        <!--
+            AUDIO DESDE GITHUB
+
+            IMPORTANTE:
+            El nombre debe coincidir exactamente
+            con el MP3 que subiste.
+        -->
 
         <audio
             id="musica"
             preload="metadata">
 
             <source
-                src="https://raw.githubusercontent.com/cromatgrafic-glitch/invitacion-isabella/main/Abba%20-%20Slipping%20Through%20My%20Fingers.mp3"
+                src="Abba%20-%20Slipping%20Through%20My%20Fingers.mp3"
                 type="audio/mpeg">
 
         </audio>
@@ -562,9 +591,9 @@ body {
 
 
 
-    <!-- =====================================
+    <!-- =================================
          CONTADOR
-    ====================================== -->
+    ================================== -->
 
     <div class="contador">
 
@@ -574,19 +603,14 @@ body {
             <div
                 class="numero"
                 id="dias">
-
                 00
-
             </div>
 
             <div class="etiqueta">
-
                 Días
-
             </div>
 
         </div>
-
 
 
         <div class="caja">
@@ -594,19 +618,14 @@ body {
             <div
                 class="numero"
                 id="horas">
-
                 00
-
             </div>
 
             <div class="etiqueta">
-
                 Horas
-
             </div>
 
         </div>
-
 
 
         <div class="caja">
@@ -614,19 +633,14 @@ body {
             <div
                 class="numero"
                 id="minutos">
-
                 00
-
             </div>
 
             <div class="etiqueta">
-
                 Min
-
             </div>
 
         </div>
-
 
 
         <div class="caja">
@@ -634,22 +648,17 @@ body {
             <div
                 class="numero"
                 id="segundos">
-
                 00
-
             </div>
 
             <div class="etiqueta">
-
                 Seg
-
             </div>
 
         </div>
 
 
     </div>
-
 
 </div>
 
@@ -662,54 +671,34 @@ body {
 
    EVENTO:
    26 DE SEPTIEMBRE DE 2026
-   19:00 HORA DE PERÚ
-
-   Perú = UTC -5
+   19:00 HORAS - PERÚ
 ========================================== */
 
-
 const fechaEvento =
-    new Date(
-        "2026-09-27T00:00:00Z"
-    ).getTime();
-
+    new Date("2026-09-27T00:00:00Z").getTime();
 
 
 function actualizarContador() {
 
-
     const ahora =
         new Date().getTime();
 
-
-    const diferencia =
+    let diferencia =
         fechaEvento - ahora;
-
 
 
     if (diferencia <= 0) {
 
+        document.getElementById("dias").textContent = "00";
 
-        document.getElementById("dias")
-            .textContent = "00";
+        document.getElementById("horas").textContent = "00";
 
+        document.getElementById("minutos").textContent = "00";
 
-        document.getElementById("horas")
-            .textContent = "00";
-
-
-        document.getElementById("minutos")
-            .textContent = "00";
-
-
-        document.getElementById("segundos")
-            .textContent = "00";
-
+        document.getElementById("segundos").textContent = "00";
 
         return;
-
     }
-
 
 
     const dias =
@@ -739,31 +728,25 @@ function actualizarContador() {
         );
 
 
-
-    document.getElementById("dias")
-        .textContent =
+    document.getElementById("dias").textContent =
         String(dias).padStart(2, "0");
 
 
-    document.getElementById("horas")
-        .textContent =
+    document.getElementById("horas").textContent =
         String(horas).padStart(2, "0");
 
 
-    document.getElementById("minutos")
-        .textContent =
+    document.getElementById("minutos").textContent =
         String(minutos).padStart(2, "0");
 
 
-    document.getElementById("segundos")
-        .textContent =
+    document.getElementById("segundos").textContent =
         String(segundos).padStart(2, "0");
 
 }
 
 
 actualizarContador();
-
 
 setInterval(
     actualizarContador,
@@ -773,20 +756,15 @@ setInterval(
 
 
 /* ==========================================
-   REPRODUCTOR PERSONALIZADO
+   REPRODUCTOR
 ========================================== */
-
 
 const musica =
     document.getElementById("musica");
 
 
-const playButton =
-    document.getElementById("playButton");
-
-
-const progressContainer =
-    document.getElementById("progressContainer");
+const audioButton =
+    document.getElementById("audioButton");
 
 
 const progressBar =
@@ -798,22 +776,23 @@ const audioTime =
 
 
 
-/* ==========================================
-   PLAY / PAUSA
-========================================== */
+/* PLAY / PAUSA */
 
-playButton.addEventListener(
+audioButton.addEventListener(
     "click",
     function() {
-
 
         if (musica.paused) {
 
             musica.play();
 
+            audioButton.textContent = "❚❚";
+
         } else {
 
             musica.pause();
+
+            audioButton.textContent = "▶";
 
         }
 
@@ -822,148 +801,64 @@ playButton.addEventListener(
 
 
 
-/* ==========================================
-   CAMBIAR ICONO
-========================================== */
-
-musica.addEventListener(
-    "play",
-    function() {
-
-        playButton.textContent = "❚❚";
-
-    }
-);
-
-
-musica.addEventListener(
-    "pause",
-    function() {
-
-        playButton.textContent = "▶";
-
-    }
-);
-
-
-
-/* ==========================================
-   BARRA DE PROGRESO
-========================================== */
+/* ACTUALIZAR BARRA */
 
 musica.addEventListener(
     "timeupdate",
     function() {
 
+        if (musica.duration) {
 
-        if (!musica.duration) {
+            const porcentaje =
+                (musica.currentTime /
+                musica.duration) * 100;
 
-            return;
+
+            progressBar.style.width =
+                porcentaje + "%";
+
+
+            const minutos =
+                Math.floor(
+                    musica.currentTime / 60
+                );
+
+
+            const segundos =
+                Math.floor(
+                    musica.currentTime % 60
+                );
+
+
+            audioTime.textContent =
+                minutos +
+                ":" +
+                String(segundos).padStart(2, "0");
 
         }
-
-
-        const porcentaje =
-            (musica.currentTime /
-            musica.duration) * 100;
-
-
-        progressBar.style.width =
-            porcentaje + "%";
-
-
-        actualizarTiempo();
 
     }
 );
 
 
 
-/* ==========================================
-   DURACIÓN DEL AUDIO
-========================================== */
+/* CUANDO TERMINA */
 
 musica.addEventListener(
-    "loadedmetadata",
+    "ended",
     function() {
 
-        actualizarTiempo();
+        audioButton.textContent = "▶";
+
+        progressBar.style.width = "0%";
+
+        audioTime.textContent = "0:00";
 
     }
 );
-
-
-
-/* ==========================================
-   CLICK EN LA BARRA
-========================================== */
-
-progressContainer.addEventListener(
-    "click",
-    function(event) {
-
-
-        if (!musica.duration) {
-
-            return;
-
-        }
-
-
-        const rect =
-            progressContainer
-            .getBoundingClientRect();
-
-
-        const posicion =
-            event.clientX -
-            rect.left;
-
-
-        const porcentaje =
-            posicion /
-            rect.width;
-
-
-        musica.currentTime =
-            porcentaje *
-            musica.duration;
-
-    }
-);
-
-
-
-/* ==========================================
-   MOSTRAR TIEMPO
-========================================== */
-
-function actualizarTiempo() {
-
-
-    const minutos =
-        Math.floor(
-            musica.currentTime / 60
-        );
-
-
-    const segundos =
-        Math.floor(
-            musica.currentTime % 60
-        );
-
-
-    audioTime.textContent =
-        minutos +
-        ":" +
-        String(segundos)
-            .padStart(2, "0");
-
-}
 
 </script>
 
 
 </body>
-
 </html>
